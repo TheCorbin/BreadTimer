@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bread Timer
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTimer()">
+        {{buttonText}}
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <div class="header">
+      <h3>{{currentRecipe.title}}</h3>
+      <br/>
+      <ion-grid>
+        <ion-row >
+          <ion-col class="center">
+            Total Expected Duration
+            <br/>
+            {{this.totalSeconds | hoursMinutesSeconds }}
+          </ion-col>
+          <ion-col class="center">
+            Initial Expected Duration
+            <br/>
+            {{this.initialTotalSeconds | hoursMinutesSeconds}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-item>
+
+  <ion-list>
+    <ion-card *ngFor="let component of this.currentRecipe.components" [class.highlight]="component == this.selectedComponent">
+      <p>{{component.title}}</p>
+      <p>{{component.duration | hoursMinutesSeconds}}</p>
+    </ion-card>
+  </ion-list>
+
+  <!-- <ion-item-options side="right">
+      <button color="light" ion-button icon-only (click)="editProject(project)">
+          <ion-icon name="settings"></ion-icon>
+      </button>
+      <button color="danger" ion-button icon-only (click)="projectsService.removeProject(project)">
+          <ion-icon name="trash"></ion-icon>
+      </button>
+  </ion-item-options> -->
+</ion-content>
