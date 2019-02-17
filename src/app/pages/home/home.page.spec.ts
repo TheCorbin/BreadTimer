@@ -1,3 +1,4 @@
+import { HoursMinutesSecondsPipe } from './../../shared/pipes/hours-minutes-seconds.pipe';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -9,8 +10,9 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
+      declarations: [ HomePage, HoursMinutesSecondsPipe ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [ HoursMinutesSecondsPipe ],
     })
       .compileComponents();
   }));
